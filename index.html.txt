@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional IT services for your business needs">
+    <meta name="keywords" content="IT services, solopreneur, tech solutions">
+    <title>Eagle IT Solutions | Professional Technology Services</title>
+    <style>
+        /* CSS Variables for easy theme customization */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --light-text: #64748b;
+            --accent-color: #f59e0b;
+            --white: #ffffff;
+            --border-radius: 0.5rem;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; color: var(--primary-color); }
+        p { margin-bottom: 1rem; color: var(--light-text); }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section { padding: 4rem 0; }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent { background-color: var(--accent-color); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { color: var(--primary-color); margin-bottom: 1rem; }
+
+        .testimonials { background-color: var(--white); padding: 4rem 0; }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--background-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            margin-top: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+        }
+
+        textarea { min-height: 150px; resize: vertical; }
+        .error {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .payment-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .payment-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover { color: var(--accent-color); }
+        .privacy-notice {
+            font-size: 0.875rem;
+            margin-top: 2rem;
+            color: var(--light-text);
+        }
+
+        #formSuccess {
+            display: none;
+            color: green;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        #localTestNotice {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .hero { padding: 6rem 0 2rem; }
+            section { padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Eagle IT Solutions</div>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Expert IT Solutions For Your Business</h1>
+            <p>Professional technology services tailored to help small businesses and solopreneurs thrive in the digital age.</p>
+            <a href="#services" class="btn">Our Services</a>
+            <a href="#contact" class="btn btn-accent">Get Started</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>Comprehensive IT solutions designed to meet your specific business needs.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Website Development</h3>
+                    <p>Custom websites built for performance and conversion. Responsive designs that work perfectly on all devices with optimized load times and SEO-ready structure.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>IT Consulting</h3>
+                    <p>Strategic technology planning to align your IT infrastructure with business goals. We help you make smart tech decisions with unbiased advice.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Cloud Solutions</h3>
+                    <p>Migration, setup and management of cloud services including AWS, Google Cloud and Azure. Secure, scalable solutions tailored to your workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <p>Don't just take our word for it - hear from our satisfied customers.</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Eagle IT Solutions transformed our online presence with a website that actually converts visitors into customers. Their attention to detail is unmatched."</p>
+                    <div class="testimonial-author">- Sarah Johnson, Marketing Director</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"The cloud migration was seamless thanks to their expertise. We've seen a 40% improvement in system reliability since switching."</p>
+                    <div class="testimonial-author">- Michael Chen, Operations Manager</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"As a solopreneur, I needed cost-effective IT solutions. They delivered exactly what I needed at a price I could afford. Highly recommend!"</p>
+                    <div class="testimonial-author">- David Wilson, Founder</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Have questions or ready to get started? Send us a message and we'll respond promptly.</p>
+            
+            <form id="contactForm" class="contact-form">
+                <input type="hidden" name="_formsubmit_id" value="eagle-it-contact">
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                    <div id="nameError" class="error">Please enter your name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div id="emailError" class="error">Please enter a valid email</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <div id="messageError" class="error">Please enter your message</div>
+                </div>
+                
+                <button type="submit" class="btn">Send Message</button>
+                
+                <div id="formSuccess">
+                    Message sent successfully! We'll contact you soon.
+                </div>
+                
+                <div id="localTestNotice">
+                    <h3>Testing Locally?</h3>
+                    <p>The form won't actually submit when testing as a file. To test email functionality:</p>
+                    <ol>
+                        <li>Deploy to GitHub Pages (it will work there)</li>
+                        <li>Or test the validation with this button:</li>
+                    </ol>
+                    <button id="testSubmitBtn" class="btn" style="margin-top: 1rem;">Test Validation</button>
+                </div>
+                
+                <div class="privacy-notice">
+                    <p>We respect your privacy. Your information will only be used to respond to your inquiry.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="payment">
+        <div class="container">
+            <h2>Payment Options</h2>
+            <p>We accept the following payment methods. Final payment details will be confirmed via email.</p>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 9l-2 2m0 0l-2-2m2 2v6m5-6a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>PayPal</span>
+                </div>
+                
+                <div class="payment-method">
+                    <svg class="payment-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"></path>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                    <span>Bitcoin</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link">Reddit</a>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">YouTube</a>
+            </div>
+            <p>&copy; <span id="year"></span> Eagle IT Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Form validation and submission
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const formSuccess = document.getElementById('formSuccess');
+        const localTestNotice = document.getElementById('localTestNotice');
+
+        // Show local test notice if viewing as file
+        if (window.location.protocol === 'file:') {
+            localTestNotice.style.display = 'block';
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Validate name
+            if (nameInput.value.trim() === '') {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            // Validate message
+            if (messageInput.value.trim() === '') {
+                messageError.style.display = 'block';
+                isValid = false;
+            } else {
+                messageError.style.display = 'none';
+            }
+
+            if (isValid) {
+                if (window.location.protocol === 'file:') {
+                    // Local file testing - show success but don't submit
+                    formSuccess.style.display = 'block';
+                    contactForm.reset();
+                    window.scrollTo({
+                        top: document.getElementById('contact').offsetTop,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Prepare for FormSubmit when deployed
+                    contactForm.action = "https://formsubmit.co/nileseagle4@gmail.com";
+                    
+                    // Add hidden fields for FormSubmit
+                    const hiddenFields = [
+                        `<input type="hidden" name="_captcha" value="false">`,
+                        `<input type="hidden" name="_next" value="${window.location.href.split('?')[0]}?success=true">`,
+                        `<input type="hidden" name="_subject" value="New Contact Form Submission">`
+                    ];
+                    
+                    hiddenFields.forEach(field => {
+                        if (!contactForm.querySelector(field.match(/name="([^"]+)"/)[1])) {
+                            contactForm.insertAdjacentHTML('beforeend', field);
+                        }
+                    });
+                    
+                    // Submit the form
+                    contactForm.submit();
+                }
+            }
+        });
+
+        // Test button for local development
+        document.getElementById('testSubmitBtn')?.addEventListener('click', function() {
+            formSuccess.style.display = 'block';
+            contactForm.reset();
+            window.scrollTo({
+                top: document.getElementById('contact').offsetTop,
+                behavior: 'smooth'
+            });
+        });
+
+        // Show success message if redirected back from FormSubmit
+        if (new URLSearchParams(window.location.search).has('success')) {
+            formSuccess.style.display = 'block';
+            window.history.replaceState(null, null, window.location.pathname);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
